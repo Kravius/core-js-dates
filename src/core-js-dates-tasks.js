@@ -232,11 +232,14 @@ function getWeekNumberByDate(/* date */) {
  */
 function getNextFridayThe13th(date) {
   let month = date.getMonth();
-  while (true) {
+  const maxMonthsToCheck = 12;
+
+  for (let i = 0; i < maxMonthsToCheck; i += 1) {
     const next13 = new Date(date.getFullYear(), month, 13);
     if (next13.getDay() === 5) return next13;
     month += 1;
   }
+  return null;
 }
 
 /**
